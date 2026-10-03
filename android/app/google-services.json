@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "459140884544",
+    "project_id": "iclick-62e6a",
+    "storage_bucket": "iclick-62e6a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459140884544:android:c905ad01ab13f9a6bc97a5",
+        "android_client_info": {
+          "package_name": "com.connectme.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvGUuN9DRmsS7K3qCkBDKP3vsmxbONDXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

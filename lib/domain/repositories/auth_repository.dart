@@ -1,0 +1,23 @@
+import '../../core/utils/either.dart';
+import '../../core/errors/failures.dart';
+import '../entities/user_entity.dart';
+abstract class AuthRepository {
+  Future<Either<Failure, UserEntity>> signIn({
+    required String email,
+    required String password,
+  });
+
+  Future<Either<Failure, UserEntity>> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+  });
+
+  Future<Either<Failure, void>> signOut();
+
+  Future<Either<Failure, void>> resetPassword({required String email});
+
+  Future<Either<Failure, UserEntity?>> getCurrentUser();
+
+  Stream<UserEntity?> authStateChanges();
+}
