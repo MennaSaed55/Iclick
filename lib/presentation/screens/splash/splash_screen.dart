@@ -7,6 +7,7 @@ import '../../../core/app_router/app_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../blocs/auth/auth_cubit.dart';
 import '../../blocs/auth/auth_state.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -35,8 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-      },
+      listener: (context, state) {},
       child: Scaffold(
         body: Container(
           width: double.infinity,

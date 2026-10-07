@@ -6,15 +6,36 @@ import '../../../../core/app_router/app_router.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class BottomNav extends StatefulWidget {
-   late final int currentNavIndex;
-   final VoidCallback onProfileNavTap;
-    BottomNav({super.key, required this.currentNavIndex, required this.onProfileNavTap});
+  final int currentNavIndex;
+  final VoidCallback onProfileNavTap;
+
+  const BottomNav({
+    super.key,
+    required this.currentNavIndex,
+    required this.onProfileNavTap,
+  });
 
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.currentNavIndex;
+  }
+
+  @override
+  void didUpdateWidget(covariant BottomNav oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentNavIndex != widget.currentNavIndex) {
+      _selectedIndex = widget.currentNavIndex;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -34,13 +55,13 @@ class _BottomNavState extends State<BottomNav> {
                 width: 24.w,
                 height: 24.h,
                 colorFilter: ColorFilter.mode(
-                  widget.currentNavIndex == 0
+                  _selectedIndex == 0
                       ? AppColors.cDarkPurple
                       : AppColors.cGrey4,
                   BlendMode.srcIn,
                 ),
               ),
-              onPressed: () => setState(() =>  widget.currentNavIndex = 0),
+              onPressed: () => setState(() => _selectedIndex = 0),
             ),
 
             // Explore / Map
@@ -50,7 +71,7 @@ class _BottomNavState extends State<BottomNav> {
                 width: 24.w,
                 height: 24.h,
                 colorFilter: ColorFilter.mode(
-                  widget.currentNavIndex == 1
+                  _selectedIndex == 1
                       ? AppColors.cDarkPurple
                       : AppColors.cGrey4,
                   BlendMode.srcIn,
@@ -62,30 +83,33 @@ class _BottomNavState extends State<BottomNav> {
             ),
 
             const SizedBox(width: 48),
+
+            // Messages
             IconButton(
               icon: SvgPicture.asset(
                 'assets/nav_bar/message.svg',
                 width: 24.w,
                 height: 24.h,
                 colorFilter: ColorFilter.mode(
-                  widget.currentNavIndex == 2
+                  _selectedIndex == 2
                       ? AppColors.cDarkPurple
                       : AppColors.cGrey4,
                   BlendMode.srcIn,
                 ),
               ),
               onPressed: () {
-                setState(() =>  widget.currentNavIndex = 2);
+                setState(() => _selectedIndex = 2);
               },
             ),
 
+            // Profile (Biometric Gate)
             IconButton(
               icon: SvgPicture.asset(
                 'assets/nav_bar/profile.svg',
                 width: 24.w,
                 height: 24.h,
                 colorFilter: ColorFilter.mode(
-                  widget.currentNavIndex == 3
+                  _selectedIndex == 3
                       ? AppColors.cDarkPurple
                       : AppColors.cGrey4,
                   BlendMode.srcIn,

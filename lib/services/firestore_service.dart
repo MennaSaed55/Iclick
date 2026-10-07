@@ -54,9 +54,7 @@ class FirestoreService {
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> postsStream() {
-    return postsCollection
-        .orderBy('createdAt', descending: true)
-        .snapshots();
+    return postsCollection.orderBy('createdAt', descending: true).snapshots();
   }
 
   Future<void> updatePost(String postId, Map<String, dynamic> data) {

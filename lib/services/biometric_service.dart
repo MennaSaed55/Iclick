@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
+
 class BiometricService {
   final LocalAuthentication _auth;
 
@@ -17,7 +18,8 @@ class BiometricService {
       return false;
     }
   }
- Future<bool> authenticate({
+
+  Future<bool> authenticate({
     String reason = 'Authenticate to access your profile',
   }) async {
     try {

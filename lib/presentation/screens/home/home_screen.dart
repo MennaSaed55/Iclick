@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iclick/presentation/screens/home/widgets/app_bar.dart';
 import 'package:iclick/presentation/screens/home/widgets/bottom_nav.dart';
@@ -13,9 +12,7 @@ import '../../../core/widgets/loading_overlay.dart';
 import '../../blocs/auth/auth_cubit.dart';
 import '../../blocs/auth/auth_state.dart';
 import '../../blocs/post/post_cubit.dart';
-import '../../blocs/post/post_state.dart';
 import '../../blocs/profile/profile_cubit.dart';
-import '../../common_widgets/post_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentNavIndex = 0;
+  final int _currentNavIndex = 0;
 
   @override
   void initState() {
@@ -63,10 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBarCustom(
           confirmSignOut: _confirmSignOut,
           showCreatePostDialog: _showCreatePostDialog,
+          onProfileTap: _onProfileNavTap,
         ),
         body: FeedBody(onProfileTap: _onProfileNavTap),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => _showCreatePostDialog,
+          onPressed: _showCreatePostDialog,
           backgroundColor: AppColors.cDarkPurple,
           elevation: 4,
           child: const Icon(Icons.add, color: AppColors.cWhite, size: 28),

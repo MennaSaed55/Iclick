@@ -59,7 +59,8 @@ class AuthCubit extends Cubit<AuthState> {
       (user) => emit(AuthAuthenticated(user)),
     );
   }
- Future<void> signUp({
+
+  Future<void> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -73,7 +74,6 @@ class AuthCubit extends Cubit<AuthState> {
       (user) => emit(AuthAuthenticated(user)),
     );
   }
-
 
   Future<void> signOut() async {
     emit(const AuthLoading());

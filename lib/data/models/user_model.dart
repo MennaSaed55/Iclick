@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../domain/entities/user_entity.dart';
+
 class UserModel extends UserEntity {
   const UserModel({
     required super.id,
@@ -85,6 +86,14 @@ class UserModel extends UserEntity {
     );
   }
 }
+
+/// **Design Pattern: Builder Pattern**
+///
+/// **Where**: Applied in [UserBuilder] for constructing [UserModel] instances.
+/// **Why**: Provides step-by-step construction of complex user profiles. Allows setting
+/// only essential credentials (id, fullName, email) during sign-up, while incrementally
+/// populating optional fields (bio, profileImageUrl, deviceModel, osVersion) during
+/// later lifecycle events without requiring massive parameter lists.
 class UserBuilder {
   String? _id;
   String? _fullName;
@@ -140,6 +149,7 @@ class UserBuilder {
     _createdAt = createdAt;
     return this;
   }
+
   UserModel build() {
     assert(_id != null, 'UserBuilder: id is required');
     assert(_fullName != null, 'UserBuilder: fullName is required');

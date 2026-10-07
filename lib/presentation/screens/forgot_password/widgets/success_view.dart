@@ -10,7 +10,7 @@ class SuccessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         Container(
           width: 80.w,
@@ -53,6 +53,5 @@ class SuccessView extends StatelessWidget {
         ),
       ],
     );
-
   }
 }

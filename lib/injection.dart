@@ -36,14 +36,14 @@ import 'services/storage_service.dart';
 final GetIt sl = GetIt.instance;
 
 Future<void> configureDependencies() async {
-   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
+  sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
   sl.registerLazySingleton<FirebaseStorage>(() => FirebaseStorage.instance);
 
   sl.registerLazySingleton<AuthService>(() => AuthService(sl<FirebaseAuth>()));
 
   sl.registerLazySingleton<FirestoreService>(
-  () => FirestoreService(sl<FirebaseFirestore>()),
+    () => FirestoreService(sl<FirebaseFirestore>()),
   );
 
   sl.registerLazySingleton<StorageService>(

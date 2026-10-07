@@ -7,13 +7,16 @@ import '../../../../core/app_router/app_router.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
-  void Function()? showCreatePostDialog;
-  void Function()? confirmSignOut;
-  AppBarCustom({
+  final VoidCallback? showCreatePostDialog;
+  final VoidCallback? confirmSignOut;
+  final VoidCallback? onProfileTap;
+
+  const AppBarCustom({
+    super.key,
     this.showCreatePostDialog,
     this.confirmSignOut,
+    this.onProfileTap,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
             BlendMode.srcIn,
           ),
         ),
-        onPressed: () => showCreatePostDialog,
+        onPressed: showCreatePostDialog,
       ),
       centerTitle: true,
       title: Text(
@@ -59,29 +62,19 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         IconButton(
-          icon: SvgPicture.asset(
-            'assets/icons/message.svg',
-            width: 20.w,
-            height: 20.h,
-            colorFilter: const ColorFilter.mode(
-              AppColors.cBlack,
-              BlendMode.srcIn,
-            ),
-          ),
-          onPressed: () {},
+          icon: const Icon(Icons.person_outline, color: AppColors.cDarkPurple),
+          tooltip: 'Profile (Biometrics)',
+          onPressed: onProfileTap,
         ),
         IconButton(
           icon: const Icon(Icons.logout_rounded, color: AppColors.cGrey2),
           tooltip: 'Sign Out',
-          onPressed: () => confirmSignOut,
+          onPressed: confirmSignOut,
         ),
       ],
     );
   }
 
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
-
-
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -12,7 +12,6 @@ class PostRepositoryImpl implements PostRepository {
 
   PostRepositoryImpl(this._dataSourceFactory);
 
-
   PostDataSource get _dataSource => _dataSourceFactory.createDataSource();
 
   @override

@@ -12,9 +12,9 @@ import '../../../common_widgets/post_card.dart';
 import 'add_story_item.dart';
 
 class FeedBody extends StatelessWidget {
-  Function()? onProfileTap;
+  final VoidCallback? onProfileTap;
 
-  FeedBody({super.key, required this.onProfileTap});
+  const FeedBody({super.key, required this.onProfileTap});
 
   @override
   Widget build(BuildContext context) {

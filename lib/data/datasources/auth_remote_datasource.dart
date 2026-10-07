@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/errors/exceptions.dart';
 import '../../core/helpers/firebase_error_mapper.dart';
 import '../models/user_model.dart';
+
 abstract class AuthRemoteDataSource {
   Future<UserModel> signIn({required String email, required String password});
   Future<UserModel> signUp({
@@ -135,7 +136,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           UserModel.fromFirebaseUser(user);
     });
   }
-Future<UserModel?> _fetchUserProfile(String uid) async {
+
+  Future<UserModel?> _fetchUserProfile(String uid) async {
     try {
       final doc = await firestore.collection('users').doc(uid).get();
       if (!doc.exists || doc.data() == null) return null;
