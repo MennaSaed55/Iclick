@@ -6,18 +6,6 @@ A production-ready Flutter mobile application architected with **Clean Architect
 
 ---
 
-## 📱 Visual Previews
-
-| Screen | Preview | Screen | Preview |
-|---|---|---|---|
-| **Welcome / Onboarding** | ![Welcome](docs/screenshots/welcome.png) | **Sign In (Login)** | ![Sign In](docs/screenshots/login.png) |
-| **Sign Up** | ![Sign Up](docs/screenshots/signup.png) | **Forgot Password** | ![Forgot Password](docs/screenshots/forgot_password.png) |
-| **Community Feed** | ![Home Feed](docs/screenshots/home.png) | **Biometric Gate** | ![Biometric](docs/screenshots/biometric.png) |
-| **Member Profile** | ![Profile](docs/screenshots/profile.png) | **Device Information** | ![Device Info](docs/screenshots/device_info.png) |
-| **Community Map** | ![Map](docs/screenshots/map.png) | **App Distribution** | ![Distribution](docs/screenshots/distribution.png) |
-
----
-
 ## 🚀 Key Features
 
 * **Authentication Flow**:
